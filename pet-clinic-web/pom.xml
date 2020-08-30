@@ -9,6 +9,10 @@
 
     <artifactId>pet-clinic-web</artifactId>
 
+    <properties>
+        <maven.javadoc.skip>true</maven.javadoc.skip>
+    </properties>
+
     <dependencies>
         <dependency>
             <artifactId>pet-clinic-data</artifactId>
