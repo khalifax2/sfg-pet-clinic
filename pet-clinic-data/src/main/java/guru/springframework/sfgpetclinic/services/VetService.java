@@ -5,6 +5,6 @@ import guru.springframework.sfgpetclinic.model.Vet;
 
 import java.util.Set;
 
-public interface VerService extends CrudService<Vet, Long>{
+public interface VetService extends CrudService<Vet, Long>{
 
 }
