@@ -30,10 +30,4 @@ public class OwnerSDJpaService extends AbstractJpaService<Owner, OwnerRepository
         return super.repository.findByLastName(lastName);
     }
 
-//    @Override
-//    public Set<Owner> findAll() {
-//        Set<Owner> owners = new HashSet<>();
-//        super.repository.findAll().forEach(owners::add);
-//        return owners;
-//    }
 }
