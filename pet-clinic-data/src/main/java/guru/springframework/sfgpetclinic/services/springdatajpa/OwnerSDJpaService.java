@@ -2,21 +2,38 @@ package guru.springframework.sfgpetclinic.services.springdatajpa;
 
 import guru.springframework.sfgpetclinic.model.Owner;
 import guru.springframework.sfgpetclinic.repositories.OwnerRepository;
+import guru.springframework.sfgpetclinic.repositories.PetRepository;
+import guru.springframework.sfgpetclinic.repositories.PetTypeRepository;
 import guru.springframework.sfgpetclinic.services.OwnerService;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
+
+import java.util.HashSet;
+import java.util.Set;
 
 
 @Service
 @Profile("springdatajpa")
 public class OwnerSDJpaService extends AbstractJpaService<Owner, OwnerRepository> implements OwnerService {
 
-    public OwnerSDJpaService(OwnerRepository repository) {
-        super(repository);
+    private final PetRepository petRepository;
+    private final PetTypeRepository petTypeRepository;
+
+    public OwnerSDJpaService(OwnerRepository ownerRepository, PetRepository petRepository, PetTypeRepository petTypeRepository) {
+        super(ownerRepository);
+        this.petRepository = petRepository;
+        this.petTypeRepository = petTypeRepository;
     }
 
     @Override
     public Owner findByLastName(String lastName) {
-        return null;
+        return super.repository.findByLastName(lastName);
     }
+
+//    @Override
+//    public Set<Owner> findAll() {
+//        Set<Owner> owners = new HashSet<>();
+//        super.repository.findAll().forEach(owners::add);
+//        return owners;
+//    }
 }

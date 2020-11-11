@@ -8,7 +8,8 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.HashSet;
 import java.util.Set;
 
-public abstract class AbstractJpaService<T extends BaseEntity, R extends JpaRepository<T, Long>> implements CrudService<T, Long> {
+public abstract class AbstractJpaService<T extends BaseEntity,
+        R extends CrudRepository<T, Long>> implements CrudService<T, Long> {
 
     protected R repository;
 
@@ -18,7 +19,9 @@ public abstract class AbstractJpaService<T extends BaseEntity, R extends JpaRepo
 
     @Override
     public Set<T> findAll() {
-        return new HashSet<>(repository.findAll());
+        Set<T> owners = new HashSet<>();
+        repository.findAll().forEach(owners::add);
+        return owners;
     }
 
     @Override
