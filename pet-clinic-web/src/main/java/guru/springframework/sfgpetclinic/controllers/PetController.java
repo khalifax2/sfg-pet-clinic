@@ -17,11 +17,8 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.Collection;
 
-/**
- * Created by jt on 9/22/18.
- */
-@Controller
 @RequestMapping("/owners/{ownerId}")
+@Controller
 public class PetController {
 
     private static final String VIEWS_PETS_CREATE_OR_UPDATE_FORM = "pets/createOrUpdatePetForm";
